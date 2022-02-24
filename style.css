@@ -1,350 +1,402 @@
- body,
- html {
-     padding: 0;
-     margin: 0;
-     overflow: hidden;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- }
- 
- img {
-     user-select: none;
-     -webkit-user-drag: none;
- }
- 
- #app {
-     display: flex;
- }
- 
- .result {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     position: absolute;
-     top: 0;
-     left: 0;
-     height: 100%;
-     width: 100%;
-     background-color: #000000b9;
-     z-index: 999;
-     color: white;
- }
- 
- .result div {
-     display: flex;
-     gap: 2rem;
-     flex-direction: column;
-     transform: translateX(-90%)
- }
- 
- .tryagain:hover {
-     cursor: pointer;
-     transition: 75ms;
-     transform: scale(1.1);
- }
- 
- .hidden {
-     display: none;
- }
- 
- .fight {
-     display: flex;
-     justify-content: space-between;
-     background-image: url(bgWoods.png);
-     background-repeat: no-repeat;
-     background-size: 100%;
-     width: 79vw;
-     height: 100vh;
- }
- 
- .ultimatebar {
-     position: absolute;
-     width: 30%;
-     height: 2.5rem;
-     background-color: rgba(39, 39, 39, 0.438);
-     bottom: 0;
-     margin: 1rem;
-     border: 2px solid rgba(73, 62, 0, 0.555);
-     box-shadow: 0 0 10px #eeb600;
- }
- 
- .ultcharge {
-     height: 100%;
-     width: 10%;
-     background: linear-gradient(90deg, rgba(249, 129, 0, 1) 0%, rgba(255, 218, 0, 1) 100%);
- }
- 
- .charged {
-     box-shadow: 0 0 10px #ee7f00;
-     animation: glow5 7s linear infinite;
- }
- 
- .menu {
-     display: grid;
-     grid-template-rows: 39% 39%;
-     margin-top: 5%;
-     gap: 1rem;
-     /* background-color: #121212; */
-     /* background-image: url(paper.png); */
-     background-size: cover;
-     color: rgb(43, 43, 43);
-     width: 22vw;
-     height: 100vh;
- }
- 
- .menu img {
-     position: absolute;
-     left: 71.8%;
-     top: -10%;
-     height: 120%;
-     width: 40%;
- }
- 
- .attacks {
-     user-select: none;
-     display: grid;
-     gap: 0.5rem;
-     grid-template-columns: 1fr 1fr;
-     grid-template-rows: 1fr 1fr;
-     /* grid-row: 1 / span 1; */
-     /* background-color: #36363636; */
-     margin: 2rem;
-     z-index: 3;
- }
- 
- .attack {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     cursor: pointer;
-     /* text-align: center; */
-     color: white;
-     background-image: url(btn12.png);
-     background-repeat: no-repeat;
-     background-size: contain;
-     /* padding-left: 10px;
+body,
+html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#app {
+  display: flex;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000b9;
+  z-index: 999;
+  color: white;
+}
+
+.result div {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.tryagain:hover {
+  cursor: pointer;
+  transition: 75ms;
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.fight {
+  display: flex;
+  justify-content: space-between;
+  background-image: url(bgWoods.png), url(snow.gif);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat, repeat;
+  background-size: 100%, 10%;
+  width: 79vw;
+  height: 100vh;
+}
+
+.ultimatebar {
+  position: absolute;
+  width: 30%;
+  height: 2.5rem;
+  background-color: rgba(39, 39, 39, 0.438);
+  bottom: 0;
+  margin: 1rem;
+  border: 2px solid rgba(73, 62, 0, 0.555);
+  box-shadow: 0 0 10px #eeb600;
+}
+
+.ultcharge {
+  height: 100%;
+  width: 10%;
+  background: linear-gradient(90deg, rgba(249, 129, 0, 1) 0%, rgba(255, 218, 0, 1) 100%);
+}
+
+.charged {
+  box-shadow: 0 0 10px #ee7f00;
+  animation: glow5 7s linear infinite;
+}
+
+.menu {
+  display: grid;
+  grid-template-rows: 39% 39%;
+  margin-top: 5%;
+  gap: 1rem;
+  /* background-color: #121212; */
+  /* background-image: url(paper.png); */
+  background-size: cover;
+  color: rgb(43, 43, 43);
+  width: 22vw;
+  height: 100vh;
+  z-index: 20;
+}
+
+.menu img {
+  position: absolute;
+  left: 71.8%;
+  top: -10%;
+  height: 120%;
+  width: 40%;
+}
+
+.attacks {
+  user-select: none;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  /* grid-row: 1 / span 1; */
+  /* background-color: #36363636; */
+  margin: 2rem;
+  z-index: 3;
+}
+
+.attack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* text-align: center; */
+  color: white;
+  background-image: url(btn12.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* padding-left: 10px;
      margin-left: -10px; */
-     text-shadow: 2px 1px black;
- }
- 
- .attack:hover {
-     transform: scale(1.05);
-     transition: 100ms;
- }
- 
- .ultimate {
-     transform: translateY(-5.5px);
-     background-image: url(btn11.png);
-     background-repeat: no-repeat;
-     background-size: contain;
- }
- 
- .ultimate:hover {
-     transform: scale(1.05);
-     transition: 100ms;
- }
- 
- .log {
-     grid-row: 2 / span 1;
-     background-color: #fffdfda8;
-     border: solid 3px rgb(189, 140, 85);
-     border-radius: 50px;
-     box-shadow: inset 0 0 10px #000000;
-     margin: 2rem;
-     text-align: center;
-     z-index: 3;
-     overflow-y: scroll;
- }
- 
- .log::-webkit-scrollbar {
-     display: none;
- }
- 
- .log {
-     -ms-overflow-style: none;
-     scrollbar-width: none;
- }
- 
- #enemy {
-     /* background-color: blue; */
-     align-self: end;
-     transform: scaleX(-1);
- }
- 
- #enemy img {
-     height: 650px;
-     animation: shake infinite 17s cubic-bezier(.36, .07, .19, .97) both;
-     transform: translate3d(0, 0, 0);
-     backface-visibility: hidden;
-     perspective: 1000px;
- }
- 
- #player img {
-     animation: player infinite 10s;
- }
- 
- #player {
-     align-self: end;
- }
- 
- .status {
-     display: grid;
-     grid-template-columns: 49% auto 49%;
-     position: absolute;
-     top: 2rem;
-     width: 70%;
-     height: 80px;
-     right: 28%;
-     margin-top: 1rem;
-     background-color: red;
-     border-radius: 25px;
-     animation: glow3 5s linear infinite;
- }
- 
- .hp-divider img {
-     position: absolute;
-     height: 150%;
-     top: -25%;
-     left: 45.5%;
-     background-color: black;
-     animation: glow2 10s linear infinite;
-     border-radius: 25px;
-     z-index: 100;
- }
- 
- .player-hp {
-     grid-row: 1 / span 1;
-     background: linear-gradient(to left, #003300, #009933, #33cc33);
-     height: 100%;
-     width: 100%;
-     border-radius: 15px;
-     justify-self: end;
-     animation: glow 7s linear infinite;
- }
- 
- .enemy-hp {
-     background: linear-gradient(to left, #0066ff, #0000ff, #0000cc);
-     height: 100%;
-     width: 100%;
-     border-radius: 15px;
-     animation: glow1 7s linear infinite;
- }
- 
- @keyframes glow {
-     0% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00e66b, 0 0 40px #00ff22, 0 0 50px #03da87, 0 0 60px #0d9e00, 0 0 70px #21ad67;
-     }
-     50% {
-         box-shadow: 0 0 20px #fff, 0 0 30px #e5ff00, 0 0 40px #03af3c, 0 0 50px #5ac800, 0 0 60px #00cc44, 0 0 70px #18b903, 0 0 80px #008f43;
-     }
-     100% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00e66b, 0 0 40px #00ff22, 0 0 50px #03da87, 0 0 60px #0d9e00, 0 0 70px #21ad67;
-     }
- }
- 
- @keyframes glow1 {
-     0% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0004e6, 0 0 40px #0048ff, 0 0 50px #0080ff, 0 0 60px #0067ee, 0 0 70px #065386;
-     }
-     50% {
-         box-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #004cff, 0 0 40px #1701e0, 0 0 50px #005ab4, 0 0 60px #0051bb, 0 0 70px #0073c0;
-     }
-     100% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0004e6, 0 0 40px #0048ff, 0 0 50px #0080ff, 0 0 60px #0067ee, 0 0 70px #065386;
-     }
- }
- 
- @keyframes glow2 {
-     0% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000000, 0 0 40px #33353a, 0 0 50px #6c6d6e, 0 0 60px #7d7f81, 0 0 70px #bbbbbb;
-     }
-     50% {
-         box-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #1d1d1d, 0 0 40px #000000, 0 0 50px #4d4d4c, 0 0 60px #cccccc, 0 0 70px #979797;
-     }
-     100% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000000, 0 0 40px #33353a, 0 0 50px #6c6d6e, 0 0 60px #7d7f81, 0 0 70px #bbbbbb;
-     }
- }
- 
- @keyframes glow3 {
-     0% {
-         box-shadow: 0 0 10px rgb(170, 4, 4), 0 0 10px rgb(206, 9, 9), 0 0 20px #e60000, 0 0 30px #d10101, 0 0 40px #c20101, 0 0 50px #860000, 0 0 60px #880000;
-     }
-     50% {
-         box-shadow: 0 0 10px rgb(245, 0, 0), 0 0 20px #a70000, 0 0 20px #700000, 0 0 30px #c80000, 0 0 50px #ffffff, 0 0 40px #d41a1a, 0 0 50px #c20000;
-     }
-     100% {
-         box-shadow: 0 0 10px rgb(170, 4, 4), 0 0 10px rgb(206, 9, 9), 0 0 20px #e60000, 0 0 30px #d10101, 0 0 40px #c20101, 0 0 50px #860000, 0 0 60px #880000;
-     }
- }
- 
- @keyframes glow5 {
-     0% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #bce600, 0 0 30px #cfbb04, 0 0 30px rgb(122, 149, 1), 0 0 30px #9b9e00, 0 0 40px #21ad67;
-     }
-     50% {
-         box-shadow: 0 0 20px #fff, 0 0 30px #8e9e01, 0 0 30px #cfa900, 0 0 30px #a09000, 0 0 30px #d69805, 0 0 40px #b96a03, 0 0 60px #008f43;
-     }
-     100% {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 20px rgb(215, 230, 0), 0 0 20px rgb(255, 102, 0), 0 0 20px rgb(218, 107, 3), 0 0 20px rgb(226, 166, 0), 0 0 70px #21ad67;
-     }
- }
- 
- @keyframes player {
-     8% {
-         transform: translateX(-0%);
-     }
-     10% {
-         transform: translateX(-5%);
-     }
-     12% {
-         transform: translateX(-0%);
-     }
-     23% {
-         transform: translateY(-0%);
-     }
-     25% {
-         transform: translateY(-5%);
-     }
-     27% {
-         transform: translateY(-0%);
-     }
-     32% {
-         transform: translateX(-0%);
-     }
-     35% {
-         transform: translateX(5%);
-     }
-     37% {
-         transform: translateX(-0%);
-     }
-     68% {
-         transform: translateY(-0%);
-     }
-     70% {
-         transform: translateY(-5%);
-     }
-     72% {
-         transform: translateY(-0%);
-     }
- }
- 
- @keyframes shake {
-     10%,
-     90% {
-         transform: translate3d(-1px, 0, 0);
-     }
-     20%,
-     80% {
-         transform: translate3d(2px, 0, 0);
-     }
-     30%,
-     50%,
-     70% {
-         transform: translate3d(-4px, 0, 0);
-     }
-     40%,
-     60% {
-         transform: translate3d(4px, 0, 0);
-     }
- }
+  text-shadow: 2px 1px black;
+}
+
+.attack:hover {
+  transform: scale(1.05);
+  transition: 100ms;
+}
+
+.ultimate {
+  transform: translateY(-5.5px);
+  background-image: url(btn11.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ultimate:hover {
+  transform: scale(1.05);
+  transition: 100ms;
+}
+
+.log {
+  grid-row: 2 / span 1;
+  background-color: #fffdfda8;
+  border: solid 3px rgb(189, 140, 85);
+  border-radius: 50px;
+  box-shadow: inset 0 0 10px #000000;
+  margin: 2rem;
+  text-align: center;
+  z-index: 3;
+  overflow-y: scroll;
+}
+
+.log::-webkit-scrollbar {
+  display: none;
+}
+
+.log {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#enemy {
+  /* background-color: blue; */
+  align-self: end;
+  transform: scaleX(-1);
+}
+
+#enemy img {
+  height: 650px;
+  animation: shake infinite 17s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.player-idle {
+  animation: player infinite 10s;
+}
+
+.player-attack {
+  animation: attack 0.6s 1 linear;
+}
+
+.player-bolster {
+  background: url(aura.gif);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: -110px 700px;
+}
+
+.player-ultimate {
+  background: url(ult.gif);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: 290px 1000px;
+}
+
+.boss-damage {
+  background: url(damage.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+}
+
+#bossimage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#player {
+  z-index: 15;
+  align-self: end;
+}
+
+#playerimage {
+  position: absolute;
+  bottom: 0;
+  padding-top: 1000px;
+  padding-right: 1000px;
+}
+
+.status {
+  display: grid;
+  grid-template-columns: 49% auto 49%;
+  position: absolute;
+  top: 2rem;
+  width: 70%;
+  height: 80px;
+  right: 28%;
+  margin-top: 1rem;
+  background-color: red;
+  border-radius: 25px;
+  animation: glow3 5s linear infinite;
+}
+
+.hp-divider img {
+  position: absolute;
+  height: 150%;
+  top: -25%;
+  left: 45.5%;
+  background-color: black;
+  animation: glow2 10s linear infinite;
+  border-radius: 25px;
+  z-index: 100;
+}
+
+.player-hp {
+  grid-row: 1 / span 1;
+  background: linear-gradient(to left, #003300, #009933, #33cc33);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  justify-self: end;
+  animation: glow 7s linear infinite;
+}
+
+.enemy-hp {
+  background: linear-gradient(to left, #0066ff, #0000ff, #0000cc);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  animation: glow1 7s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00e66b, 0 0 40px #00ff22, 0 0 50px #03da87, 0 0 60px #0d9e00, 0 0 70px #21ad67;
+  }
+  50% {
+    box-shadow: 0 0 20px #fff, 0 0 30px #e5ff00, 0 0 40px #03af3c, 0 0 50px #5ac800, 0 0 60px #00cc44, 0 0 70px #18b903, 0 0 80px #008f43;
+  }
+  100% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00e66b, 0 0 40px #00ff22, 0 0 50px #03da87, 0 0 60px #0d9e00, 0 0 70px #21ad67;
+  }
+}
+
+@keyframes glow1 {
+  0% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0004e6, 0 0 40px #0048ff, 0 0 50px #0080ff, 0 0 60px #0067ee, 0 0 70px #065386;
+  }
+  50% {
+    box-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #004cff, 0 0 40px #1701e0, 0 0 50px #005ab4, 0 0 60px #0051bb, 0 0 70px #0073c0;
+  }
+  100% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0004e6, 0 0 40px #0048ff, 0 0 50px #0080ff, 0 0 60px #0067ee, 0 0 70px #065386;
+  }
+}
+
+@keyframes glow2 {
+  0% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000000, 0 0 40px #33353a, 0 0 50px #6c6d6e, 0 0 60px #7d7f81, 0 0 70px #bbbbbb;
+  }
+  50% {
+    box-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #1d1d1d, 0 0 40px #000000, 0 0 50px #4d4d4c, 0 0 60px #cccccc, 0 0 70px #979797;
+  }
+  100% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000000, 0 0 40px #33353a, 0 0 50px #6c6d6e, 0 0 60px #7d7f81, 0 0 70px #bbbbbb;
+  }
+}
+
+@keyframes glow3 {
+  0% {
+    box-shadow: 0 0 10px rgb(170, 4, 4), 0 0 10px rgb(206, 9, 9), 0 0 20px #e60000, 0 0 30px #d10101, 0 0 40px #c20101, 0 0 50px #860000, 0 0 60px #880000;
+  }
+  50% {
+    box-shadow: 0 0 10px rgb(245, 0, 0), 0 0 20px #a70000, 0 0 20px #700000, 0 0 30px #c80000, 0 0 50px #ffffff, 0 0 40px #d41a1a, 0 0 50px #c20000;
+  }
+  100% {
+    box-shadow: 0 0 10px rgb(170, 4, 4), 0 0 10px rgb(206, 9, 9), 0 0 20px #e60000, 0 0 30px #d10101, 0 0 40px #c20101, 0 0 50px #860000, 0 0 60px #880000;
+  }
+}
+
+@keyframes glow5 {
+  0% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #bce600, 0 0 30px #cfbb04, 0 0 30px rgb(122, 149, 1), 0 0 30px #9b9e00, 0 0 40px #21ad67;
+  }
+  50% {
+    box-shadow: 0 0 20px #fff, 0 0 30px #8e9e01, 0 0 30px #cfa900, 0 0 30px #a09000, 0 0 30px #d69805, 0 0 40px #b96a03, 0 0 60px #008f43;
+  }
+  100% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 20px rgb(215, 230, 0), 0 0 20px rgb(255, 102, 0), 0 0 20px rgb(218, 107, 3), 0 0 20px rgb(226, 166, 0), 0 0 70px #21ad67;
+  }
+}
+
+@keyframes player {
+  8% {
+    transform: translateX(-0%);
+  }
+  10% {
+    transform: translateX(-5%);
+  }
+  12% {
+    transform: translateX(-0%);
+  }
+  23% {
+    transform: translateY(-0%);
+  }
+  25% {
+    transform: translateY(-5%);
+  }
+  27% {
+    transform: translateY(-0%);
+  }
+  32% {
+    transform: translateX(-0%);
+  }
+  35% {
+    transform: translateX(5%);
+  }
+  37% {
+    transform: translateX(-0%);
+  }
+  68% {
+    transform: translateY(-0%);
+  }
+  70% {
+    transform: translateY(-5%);
+  }
+  72% {
+    transform: translateY(-0%);
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes attack {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(600px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
